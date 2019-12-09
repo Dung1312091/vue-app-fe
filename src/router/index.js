@@ -1,17 +1,15 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import { getToken } from '../utils/localStore';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: Home,
-    meta: {
-      requiresAuth: true
-    }
+    path: '/login',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
   },
   {
     path: '/about',
@@ -21,10 +19,14 @@ const routes = [
       requiresAuth: true
     }
   },
+
   {
-    path: '/login',
-    name: 'login',
-    component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
+    path: '/',
+    name: 'home',
+    component: Home,
+    meta: {
+      requiresAuth: true
+    }
   }
 ];
 
@@ -35,7 +37,7 @@ const router = new VueRouter({
 });
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (localStorage.getItem('jwt') == null) {
+    if (getToken() == null) {
       next({
         path: '/login',
         params: {
@@ -46,11 +48,11 @@ router.beforeEach((to, from, next) => {
       next();
     }
   } else {
-    if (localStorage.getItem('jwt') == null) {
+    if (getToken() == null) {
       next();
     } else {
       next({
-        path: '/home',
+        path: '/',
         params: {
           nextUrl: to.fullPath
         }

@@ -1,7 +1,6 @@
 <template>
-  <button v-on:click="click">
-    <!-- <slot></slot> -->
-    {{ title }}
+  <button v-on="$listeners">
+    <slot></slot>
   </button>
 </template>
 <script>
@@ -25,7 +24,7 @@ button {
   padding: 0 8px;
   min-width: 100px;
   font-size: 16px;
-  background-color: green;
+  background-color: #40a9ff;
   outline: none;
   cursor: pointer;
 }
