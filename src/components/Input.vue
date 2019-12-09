@@ -1,6 +1,12 @@
 <template>
-  <input v-bind="$attrs" v-on="$listener" />
+  <!-- <input v-bind="$attrs" v-on="$listener" />
+  </template>-->
+  <div>
+    <div>AAAAAAAA</div>
+    <input placeholder="edit me" />
+  </div>
 </template>
+
 <script>
 export default {
   name: 'Input'
