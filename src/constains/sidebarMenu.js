@@ -5,6 +5,22 @@ export default [
   },
   {
     name: 'Users',
-    to: '/about'
+    to: '/user'
+  },
+  {
+    name: 'Customers',
+    to: '/customers'
+  },
+  {
+    name: 'Email',
+    to: '/email'
+  },
+  {
+    name: 'Chat',
+    to: '/chat'
+  },
+  {
+    name: 'Setting',
+    to: '/setting'
   }
 ];

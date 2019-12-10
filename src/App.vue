@@ -2,7 +2,7 @@
   <div id="app">
     <component v-bind:is="layout"></component>
     <!-- <router-link to="/login">Login</router-link>| <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link> -->
+    <router-link to="/about">About</router-link>-->
   </div>
 </template>
 <script>
@@ -48,6 +48,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100%;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.f-s-b {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.p-20 {
+  padding: 20px;
+}
+.full {
+  width: 100%;
   height: 100%;
 }
 </style>

@@ -1,13 +1,12 @@
 <template>
   <section class="grid-container">
-    <header class="header">
-      <router-link to="/login">Login</router-link>| <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
+    <header class="header p-20">
+      <Header />
     </header>
     <div class="sidebar">
       <Sidebar />
     </div>
-    <div class="main">
+    <div class="main p-20">
       <router-view></router-view>
     </div>
     <div class="footer">Footer</div>
@@ -15,17 +14,20 @@
 </template>
 <script>
 import Sidebar from '../components/Sidebar.vue';
+import Header from './Header.vue';
 
 export default {
   components: {
-    Sidebar
+    Sidebar,
+    Header
   }
 };
 </script>
 <style scoped lang="scss">
 .header {
   grid-area: header;
-  background-color: #fff;
+  background-color: #3f51b5;
+  color: #fff;
 }
 .sidebar {
   grid-area: menu;
@@ -34,6 +36,7 @@ export default {
 .main {
   grid-area: main;
   overflow: auto;
+  background-color: #f4f5f8;
 }
 .footer {
   grid-area: footer;
@@ -46,14 +49,14 @@ export default {
     'header header header header header header'
     'menu main main main main main'
     'menu footer footer footer footer footer';
-  background-color: #2196f3;
+  background-color: #fff;
   height: 100%;
   grid-template-rows: 50px 1fr 40px;
   grid-template-columns: 300px 1fr;
 }
 
 .grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #fff;
   text-align: center;
   font-size: 30px;
 }

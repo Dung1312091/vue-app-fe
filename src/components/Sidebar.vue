@@ -1,5 +1,5 @@
 <template>
-  <ul class="sidebar">
+  <ul>
     <li v-for="(menu, index) in sidebarMenu" v-bind:key="index">
       <router-link exact v-bind:to="menu.to">{{ menu.name }}</router-link>
     </li>
@@ -20,18 +20,26 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.sidebar {
+ul {
   list-style: none;
   text-align: left;
   padding: 0;
+  margin-top: 10px;
   a {
     text-decoration: none;
     width: 100%;
     display: block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 0 10px 20px;
+    color: #000;
   }
   .router-link-active {
-    color: red;
-    background: rgba(255, 255, 255, 0.5);
+    color: #3f51b5;
+    background: #ece7e6;
+    border-radius: 0 20px 20px 0;
+    width: 260px;
+    transition: 250ms;
   }
 }
 </style>
